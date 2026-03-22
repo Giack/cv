@@ -32,6 +32,14 @@ export interface ExperienceItem {
   fullBullets: string[]  // full list shown expanded (superset of highlights)
 }
 
+export type SkillCategory =
+  | 'Engineering Leadership'
+  | 'Platform & Architecture'
+  | 'Frontend'
+  | 'Mobile'
+  | 'AI & LLM Tools'
+  | 'Process & Delivery'
+
 export interface CVData {
   personal: {
     name: string
@@ -43,7 +51,7 @@ export interface CVData {
   aiPilot: AIPilot
   impactMetrics: MetricItem[]
   experience: ExperienceItem[]
-  skills: Record<string, string[]>
+  skills: Record<SkillCategory, string[]>
 }
 
 export const cvData: CVData = {
@@ -51,7 +59,7 @@ export const cvData: CVData = {
     name: 'Giacomo Sortino',
     title: 'Director of Product and Engineering',
     email: 'giack87@gmail.com',
-    linkedin: 'https://linkedin.com/in/giacomosortino', // verify exact URL before deploy
+    linkedin: 'https://linkedin.com/in/giacomosortino',
     location: 'Cesano Maderno, Italy',
   },
 
