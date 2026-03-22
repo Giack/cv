@@ -59,8 +59,8 @@ export const cvData: CVData = {
     name: 'Giacomo Sortino',
     title: 'Director of Product and Engineering',
     email: 'giack87@gmail.com',
-    linkedin: 'https://linkedin.com/in/giacomosortino',
-    location: 'Cesano Maderno, Italy',
+    linkedin: 'https://www.linkedin.com/in/sortino---giacomo/?skipRedirect=true',
+    location: 'Milano, Italy',
   },
 
   aiPilot: {
