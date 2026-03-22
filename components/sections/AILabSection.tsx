@@ -95,7 +95,7 @@ export function AILabSection() {
         {/* Vision statement */}
         <div className="border-l-2 border-violet-500 pl-6 py-2">
           <p className="text-lg text-slate-200 italic leading-relaxed">
-            "{aiPilot.vision}"
+            &ldquo;{aiPilot.vision}&rdquo;
           </p>
         </div>
       </div>
