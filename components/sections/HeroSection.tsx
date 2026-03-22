@@ -1,10 +1,10 @@
 // components/sections/HeroSection.tsx
-import { cvData } from '@/data/cv'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+import { cvData } from "@/data/cv";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export function HeroSection() {
-  const { personal } = cvData
+  const { personal } = cvData;
 
   return (
     <section
@@ -19,8 +19,8 @@ export function HeroSection() {
         className="absolute inset-0 opacity-10"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(139,92,246,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.3) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
+            "linear-gradient(rgba(139,92,246,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.3) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
         }}
       />
 
@@ -34,7 +34,7 @@ export function HeroSection() {
             variant="outline"
             className="border-violet-500/50 text-violet-300 bg-violet-500/10 px-4 py-1 text-sm"
           >
-            Open to EM / Director roles at FAANG-tier companies
+            Open to new opportunities
           </Badge>
         </div>
 
@@ -52,9 +52,9 @@ export function HeroSection() {
 
         {/* Tagline */}
         <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-          15+ years from Android developer to Director — building platforms that scale,
-          teams that ship, and now leading the{' '}
-          <span className="text-violet-400 font-medium">AI transformation</span>{' '}
+          15+ years from Android developer to Director — building platforms that
+          scale, teams that ship, and now leading the{" "}
+          <span className="text-violet-400 font-medium">AI transformation</span>{" "}
           of engineering organizations.
         </p>
 
@@ -88,5 +88,5 @@ export function HeroSection() {
         <span>↓</span>
       </div>
     </section>
-  )
+  );
 }
