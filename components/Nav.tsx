@@ -3,6 +3,8 @@
 
 import { useState, useEffect } from 'react'
 
+const CONTACT_EMAIL = 'giack87@gmail.com'
+
 const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'AI Lab', href: '#ai-lab' },
@@ -17,12 +19,20 @@ export function Nav() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsOpen(false)
+    }
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
   return (
     <nav
+      aria-label="Main navigation"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-slate-900/95 backdrop-blur-sm border-b border-slate-800 shadow-lg'
@@ -48,7 +58,7 @@ export function Nav() {
               </a>
             ))}
             <a
-              href="mailto:giack87@gmail.com"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="text-sm bg-violet-600 hover:bg-violet-500 text-white px-4 py-1.5 rounded-full transition-colors duration-200"
             >
               Contact
@@ -60,6 +70,7 @@ export function Nav() {
             className="md:hidden text-slate-400 hover:text-white p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             <div className={`w-5 h-0.5 bg-current transition-all ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
             <div className={`w-5 h-0.5 bg-current my-1 transition-all ${isOpen ? 'opacity-0' : ''}`} />
@@ -82,7 +93,7 @@ export function Nav() {
             </a>
           ))}
           <a
-            href="mailto:giack87@gmail.com"
+            href={`mailto:${CONTACT_EMAIL}`}
             className="block mt-2 text-center bg-violet-600 hover:bg-violet-500 text-white px-4 py-2 rounded-full transition-colors"
             onClick={() => setIsOpen(false)}
           >
