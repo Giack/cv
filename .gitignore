@@ -8,6 +8,8 @@
 
 # testing
 /coverage
+/.lhci/
+/.lhci-serve/
 
 # next.js
 /.next/
