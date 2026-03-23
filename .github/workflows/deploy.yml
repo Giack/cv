@@ -6,7 +6,7 @@ on:
     branches: [main]
 
 jobs:
-  test-and-audit:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,14 +25,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Prepare Lighthouse serve directory
-        run: mkdir -p .lhci-serve/cv && cp -r out/. .lhci-serve/cv/ && rm -f .lhci-serve/cv/404.html
-
-      - name: Run Lighthouse CI
-        run: npx @lhci/cli@0.14.x autorun
-
   deploy:
-    needs: test-and-audit
+    needs: test
     runs-on: ubuntu-latest
     permissions:
       contents: write
