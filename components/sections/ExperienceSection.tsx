@@ -1,88 +1,87 @@
 // components/sections/ExperienceSection.tsx
-'use client'
-
-import { useState } from 'react'
-import { cvData, type ExperienceItem } from '@/data/cv'
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible'
-import { Badge } from '@/components/ui/badge'
+import { cvData, type ExperienceItem } from "@/data/cv"
+import { Badge } from "@/components/ui/badge"
 
 function ExperienceCard({ item }: { item: ExperienceItem }) {
-  const [isOpen, setIsOpen] = useState(false)
   const isExpandable = item.fullBullets.length > item.highlights.length
 
-  return (
-    <Collapsible open={isOpen} onOpenChange={setIsOpen} disabled={!isExpandable}>
-      <div className="border border-slate-800 rounded-xl bg-slate-900/50 overflow-hidden">
-        <CollapsibleTrigger className={`w-full text-left p-5 sm:p-6 transition-colors ${isExpandable ? 'hover:bg-slate-800/30 cursor-pointer' : 'cursor-default'}`}>
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex-1 min-w-0">
-              <div className="flex flex-wrap items-center gap-2 mb-1">
-                <span className="font-semibold text-white text-sm sm:text-base">
-                  {item.role}
-                </span>
-                <Badge
-                  variant="outline"
-                  className="border-slate-700 text-slate-400 text-xs shrink-0"
-                >
-                  {item.company}
-                </Badge>
-              </div>
-              <p className="text-slate-500 text-sm">{item.period}</p>
-
-              {!isOpen && (
-                <ul className="mt-3 space-y-1.5">
-                  {item.highlights.map((h, i) => (
-                    <li key={i} className="text-sm text-slate-400 flex items-start gap-2">
-                      <span className="text-violet-500 mt-1 shrink-0">›</span>
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+  if (!isExpandable) {
+    return (
+      <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50 p-5 sm:p-6">
+        <div className="flex items-start gap-4">
+          <div className="min-w-0 flex-1">
+            <div className="mb-1 flex flex-wrap items-center gap-2">
+              <span className="text-sm font-semibold text-white sm:text-base">{item.role}</span>
+              <Badge variant="outline" className="shrink-0 border-slate-700 text-xs text-slate-400">
+                {item.company}
+              </Badge>
             </div>
-
-            {isExpandable && (
-              <span className={`text-slate-500 transition-transform duration-200 shrink-0 mt-0.5 ${isOpen ? 'rotate-180' : ''}`}>
-                ↓
-              </span>
-            )}
-          </div>
-        </CollapsibleTrigger>
-
-        <CollapsibleContent>
-          <div className="px-5 sm:px-6 pb-5 sm:pb-6 border-t border-slate-800/50 pt-4">
-            <ul className="space-y-2">
-              {item.fullBullets.map((bullet, i) => (
-                <li key={i} className="text-sm text-slate-300 flex items-start gap-2">
-                  <span className="text-violet-400 mt-1 shrink-0">›</span>
-                  <span>{bullet}</span>
+            <p className="text-sm text-slate-500">{item.period}</p>
+            <ul className="mt-3 space-y-1.5">
+              {item.highlights.map((h, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
+                  <span className="mt-1 shrink-0 text-violet-500">›</span>
+                  <span>{h}</span>
                 </li>
               ))}
             </ul>
           </div>
-        </CollapsibleContent>
+        </div>
       </div>
-    </Collapsible>
+    )
+  }
+
+  return (
+    <details className="group overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50">
+      <summary className="w-full cursor-pointer list-none p-5 text-left transition-colors hover:bg-slate-800/30 sm:p-6 [&::-webkit-details-marker]:hidden">
+        <div className="flex items-start justify-between gap-4">
+          <div className="min-w-0 flex-1">
+            <div className="mb-1 flex flex-wrap items-center gap-2">
+              <span className="text-sm font-semibold text-white sm:text-base">{item.role}</span>
+              <Badge variant="outline" className="shrink-0 border-slate-700 text-xs text-slate-400">
+                {item.company}
+              </Badge>
+            </div>
+            <p className="text-sm text-slate-500">{item.period}</p>
+            <ul className="mt-3 space-y-1.5 group-open:hidden">
+              {item.highlights.map((h, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
+                  <span className="mt-1 shrink-0 text-violet-500">›</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <span className="mt-0.5 shrink-0 text-slate-500 transition-transform duration-200 group-open:rotate-180">
+            ↓
+          </span>
+        </div>
+      </summary>
+
+      <div className="border-t border-slate-800/50 px-5 pb-5 pt-4 sm:px-6 sm:pb-6">
+        <ul className="space-y-2">
+          {item.fullBullets.map((bullet, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
+              <span className="mt-1 shrink-0 text-violet-400">›</span>
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </details>
   )
 }
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 px-4 bg-slate-900">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-white mb-3">Experience</h2>
-        <p className="text-slate-400 mb-12">Click any role to expand full details</p>
+    <section id="experience" className="bg-slate-900 px-4 py-24">
+      <div className="mx-auto max-w-5xl">
+        <h2 className="mb-3 text-3xl font-bold text-white">Experience</h2>
+        <p className="mb-12 text-slate-400">Click any role to expand full details</p>
 
         <div className="space-y-3">
           {cvData.experience.map((item) => (
-            <ExperienceCard
-              key={`${item.company}-${item.role}`}
-              item={item}
-            />
+            <ExperienceCard key={`${item.company}-${item.role}`} item={item} />
           ))}
         </div>
       </div>
