@@ -1,15 +1,15 @@
 // components/sections/HeroSection.tsx
-import { cvData } from "@/data/cv";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { cvData } from "@/data/cv"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 
 export function HeroSection() {
-  const { personal } = cvData;
+  const { personal } = cvData
 
   return (
     <section
       id="about"
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 text-center"
     >
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-violet-900 via-indigo-900 to-slate-900" />
@@ -24,58 +24,49 @@ export function HeroSection() {
         }}
       />
 
-      {/* Glow orb */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl" />
-
       <div className="relative z-10 max-w-3xl">
         {/* Status badge */}
-        <div className="flex justify-center mb-6">
+        <div className="mb-6 flex justify-center">
           <Badge
             variant="outline"
-            className="border-violet-500/50 text-violet-300 bg-violet-500/10 px-4 py-1 text-sm"
+            className="border-violet-500/50 bg-violet-500/10 px-4 py-1 text-sm text-violet-300"
           >
             Open to new opportunities
           </Badge>
         </div>
 
         {/* Name */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-4 tracking-tight">
+        <h1 className="mb-4 text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
           {personal.name}
         </h1>
 
         {/* Title */}
-        <p className="text-xl sm:text-2xl text-violet-300 font-light mb-2">
-          {personal.title}
-        </p>
+        <p className="mb-2 text-xl font-light text-violet-300 sm:text-2xl">{personal.title}</p>
 
-        <p className="text-slate-400 mb-3">{personal.location}</p>
+        <p className="mb-3 text-slate-400">{personal.location}</p>
 
         {/* Tagline */}
-        <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-          15+ years from Android developer to Director — building platforms that
-          scale, teams that ship, and now leading the{" "}
-          <span className="text-violet-400 font-medium">AI transformation</span>{" "}
-          of engineering organizations.
+        <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300">
+          15+ years from Android developer to Director — building platforms that scale, teams that
+          ship, and now leading the{" "}
+          <span className="font-medium text-violet-400">AI transformation</span> of engineering
+          organizations.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <div className="flex flex-col justify-center gap-3 sm:flex-row">
           <Button
             asChild
-            className="bg-violet-600 hover:bg-violet-500 text-white px-8 py-3 rounded-full text-base"
+            className="rounded-full bg-violet-600 px-8 py-3 text-base text-white hover:bg-violet-500"
           >
             <a href={`mailto:${personal.email}`}>{personal.email}</a>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="border-slate-600 text-slate-300 hover:bg-slate-800 px-8 py-3 rounded-full text-base"
+            className="rounded-full border-slate-600 px-8 py-3 text-base text-slate-300 hover:bg-slate-800"
           >
-            <a
-              href={personal.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={personal.linkedin} target="_blank" rel="noopener noreferrer">
               LinkedIn ↗
             </a>
           </Button>
@@ -83,10 +74,10 @@ export function HeroSection() {
       </div>
 
       {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-slate-500 text-sm flex flex-col items-center gap-1">
+      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 animate-bounce flex-col items-center gap-1 text-sm text-slate-500">
         <span>scroll</span>
         <span>↓</span>
       </div>
     </section>
-  );
+  )
 }
