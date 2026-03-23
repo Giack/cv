@@ -15,37 +15,38 @@ describe("ExperienceSection", () => {
     expect(screen.getAllByText("QA Ltd").length).toBeGreaterThanOrEqual(1)
   })
 
-  test("expandable cards render a toggle button", () => {
-    render(<ExperienceSection />)
-    // CollapsibleTrigger on expandable cards renders as role="button"
-    const buttons = screen.getAllByRole("button")
-    expect(buttons.length).toBeGreaterThan(0)
+  test("expandable cards render a details element", () => {
+    const { container } = render(<ExperienceSection />)
+    const details = container.querySelectorAll("details")
+    expect(details.length).toBeGreaterThan(0)
   })
 
-  test("first card starts collapsed (aria-expanded false)", () => {
-    render(<ExperienceSection />)
-    const [firstTrigger] = screen.getAllByRole("button")
-    expect(firstTrigger).toHaveAttribute("aria-expanded", "false")
+  test("expandable card is collapsed by default (no open attribute)", () => {
+    const { container } = render(<ExperienceSection />)
+    const [firstDetails] = container.querySelectorAll("details")
+    expect(firstDetails).not.toHaveAttribute("open")
   })
 
-  test("clicking trigger expands the card (aria-expanded true)", async () => {
+  test("clicking summary expands the card", async () => {
     const user = userEvent.setup()
-    render(<ExperienceSection />)
-    const [firstTrigger] = screen.getAllByRole("button")
+    const { container } = render(<ExperienceSection />)
+    const [firstDetails] = container.querySelectorAll("details")
+    const summary = firstDetails.querySelector("summary")!
 
-    await user.click(firstTrigger)
+    await user.click(summary)
 
-    expect(firstTrigger).toHaveAttribute("aria-expanded", "true")
+    expect(firstDetails).toHaveAttribute("open")
   })
 
-  test("clicking trigger again collapses the card", async () => {
+  test("clicking summary again collapses the card", async () => {
     const user = userEvent.setup()
-    render(<ExperienceSection />)
-    const [firstTrigger] = screen.getAllByRole("button")
+    const { container } = render(<ExperienceSection />)
+    const [firstDetails] = container.querySelectorAll("details")
+    const summary = firstDetails.querySelector("summary")!
 
-    await user.click(firstTrigger)
-    await user.click(firstTrigger)
+    await user.click(summary)
+    await user.click(summary)
 
-    expect(firstTrigger).toHaveAttribute("aria-expanded", "false")
+    expect(firstDetails).not.toHaveAttribute("open")
   })
 })
