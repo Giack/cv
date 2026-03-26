@@ -11,7 +11,7 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
         <div className="flex items-start gap-4">
           <div className="min-w-0 flex-1">
             <div className="mb-1 flex flex-wrap items-center gap-2">
-              <span className="text-sm font-semibold text-white sm:text-base">{item.role}</span>
+              <span className="text-sm font-semibold text-slate-50 sm:text-base">{item.role}</span>
               <Badge variant="outline" className="shrink-0 border-slate-700 text-xs text-slate-400">
                 {item.company}
               </Badge>
@@ -37,7 +37,7 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
             <div className="mb-1 flex flex-wrap items-center gap-2">
-              <span className="text-sm font-semibold text-white sm:text-base">{item.role}</span>
+              <span className="text-sm font-semibold text-slate-50 sm:text-base">{item.role}</span>
               <Badge variant="outline" className="shrink-0 border-slate-700 text-xs text-slate-400">
                 {item.company}
               </Badge>
@@ -52,12 +52,18 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
               ))}
             </ul>
           </div>
-          <span
+          <svg
             aria-hidden="true"
-            className="mt-0.5 shrink-0 text-slate-500 transition-transform duration-200 group-open:rotate-180"
+            className="mt-1 h-4 w-4 shrink-0 text-slate-500 transition-transform duration-200 group-open:rotate-180"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            ↓
-          </span>
+            <path d="M6 9l6 6 6-6" />
+          </svg>
         </div>
       </summary>
 
@@ -77,9 +83,9 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="bg-slate-900 px-4 py-24">
+    <section id="experience" className="bg-slate-900 px-4 py-28">
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-12 text-3xl font-bold text-slate-50">Experience</h2>
+        <h2 className="mb-12 font-display text-3xl font-bold text-slate-50">Experience</h2>
 
         <div className="space-y-3">
           {cvData.experience.map((item) => (

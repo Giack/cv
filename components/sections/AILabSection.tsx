@@ -9,17 +9,20 @@ export function AILabSection() {
   const nonDevMetrics = aiPilot.metricsTracked.filter((m) => m.category === "non-dev")
 
   return (
-    <section id="ai-lab" className="bg-slate-900 px-4 py-24">
+    <section id="ai-lab" className="bg-slate-900 px-4 py-16">
       <div className="mx-auto max-w-5xl">
         {/* Section header */}
-        <div className="mb-12 flex items-center gap-4">
-          <div>
-            <h2 className="text-3xl font-bold text-white">AI Transformation Lab</h2>
+        <div className="mb-10 flex items-start gap-4">
+          <div className="min-w-0 flex-1">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-violet-400">
+              Live Initiative
+            </p>
+            <h2 className="font-display text-3xl font-bold text-slate-50">AI Transformation Lab</h2>
             <p className="mt-1 text-slate-400">
               Currently running — not a slide deck, an actual experiment
             </p>
           </div>
-          <div className="ml-auto hidden sm:block">
+          <div className="mt-1 hidden shrink-0 sm:block">
             <Badge className="border border-violet-500/30 bg-violet-500/20 px-3 py-1 text-violet-300">
               {aiPilot.status}
             </Badge>
@@ -27,7 +30,7 @@ export function AILabSection() {
         </div>
 
         {/* Mobile status badge */}
-        <div className="mb-8 sm:hidden">
+        <div className="mb-6 sm:hidden">
           <Badge className="border border-violet-500/30 bg-violet-500/20 px-3 py-1 text-violet-300">
             {aiPilot.status}
           </Badge>
@@ -36,16 +39,20 @@ export function AILabSection() {
         {/* Main card */}
         <Card className="mb-8 border-violet-500/30 bg-slate-800/60">
           <CardHeader className="pb-4">
-            <div className="flex flex-wrap gap-4 text-sm text-slate-300">
+            <div className="flex flex-wrap gap-4 text-sm">
               <div className="flex items-center gap-2">
-                <span className="font-mono text-lg text-violet-400">{aiPilot.participants}</span>
+                <span className="text-lg font-semibold text-violet-400">
+                  {aiPilot.participants}
+                </span>
                 <span className="text-slate-400">participants selected</span>
               </div>
               <div className="text-slate-600" aria-hidden="true">
                 ·
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-mono text-lg text-violet-400">{aiPilot.durationDays}d</span>
+                <span className="text-lg font-semibold text-violet-400">
+                  {aiPilot.durationDays}d
+                </span>
                 <span className="text-slate-400">benchmark window</span>
               </div>
               <div className="text-slate-600" aria-hidden="true">

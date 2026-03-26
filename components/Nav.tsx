@@ -42,7 +42,12 @@ export function Nav() {
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="flex h-14 items-center justify-between">
           {/* Logo */}
-          <span className="text-sm font-semibold tracking-wide text-slate-300">GS</span>
+          <a
+            href="#about"
+            className="font-display text-sm font-bold tracking-widest text-slate-300 transition-colors hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-900"
+          >
+            GS
+          </a>
 
           {/* Desktop links */}
           <div className="hidden items-center gap-6 md:flex">

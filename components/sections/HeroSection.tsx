@@ -9,24 +9,11 @@ export function HeroSection() {
   return (
     <section
       id="about"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 text-center"
+      className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 px-4"
     >
-      {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-900 via-indigo-900 to-slate-900" />
-
-      {/* Subtle grid overlay */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(139,92,246,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.3) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      <div className="relative z-10 max-w-3xl">
+      <div className="relative z-10 mx-auto w-full max-w-5xl py-24">
         {/* Status badge */}
-        <div className="mb-6 flex justify-center">
+        <div className="mb-8">
           <Badge
             variant="outline"
             className="border-violet-500/50 bg-violet-500/10 px-4 py-1 text-sm text-violet-300"
@@ -35,18 +22,27 @@ export function HeroSection() {
           </Badge>
         </div>
 
-        {/* Name */}
-        <h1 className="mb-4 text-5xl font-bold tracking-tight text-slate-50 sm:text-6xl md:text-7xl">
-          {personal.name}
+        {/* Name — editorial scale, Syne display font */}
+        <h1 className="mb-4 font-display leading-tight tracking-tight">
+          <span className="block text-5xl font-bold text-slate-400 sm:text-6xl md:text-7xl lg:text-8xl">
+            {personal.name.split(" ")[0]}
+          </span>
+          <span className="block text-5xl font-extrabold text-slate-50 sm:text-6xl md:text-7xl lg:text-8xl">
+            {personal.name.split(" ").slice(1).join(" ")}
+          </span>
         </h1>
 
-        {/* Title */}
-        <p className="mb-2 text-xl font-light text-violet-300 sm:text-2xl">{personal.title}</p>
+        {/* Thin violet accent line */}
+        <div className="mb-6 h-0.5 w-16 bg-violet-500" />
 
-        <p className="mb-3 text-slate-400">{personal.location}</p>
+        {/* Title */}
+        <p className="mb-1 text-xl font-medium text-violet-400 sm:text-2xl">{personal.title}</p>
+
+        {/* Location */}
+        <p className="mb-8 text-sm text-slate-400">{personal.location}</p>
 
         {/* Tagline */}
-        <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-slate-300">
+        <p className="mb-10 max-w-2xl text-lg leading-relaxed text-slate-300">
           15+ years from Android developer to Director — building platforms that scale, teams that
           ship, and now leading the{" "}
           <span className="font-medium text-violet-400">AI transformation</span> of engineering
@@ -54,7 +50,7 @@ export function HeroSection() {
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col justify-center gap-3 sm:flex-row">
+        <div className="flex flex-wrap gap-3">
           <Button
             asChild
             className="rounded-full bg-violet-600 px-8 py-3 text-base text-white hover:bg-violet-500"
@@ -80,7 +76,7 @@ export function HeroSection() {
 
       {/* Scroll hint */}
       <div
-        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 animate-float-down flex-col items-center gap-1 text-sm text-slate-500 motion-reduce:animate-none"
+        className="absolute bottom-8 left-4 flex animate-float-down flex-col items-center gap-1 text-sm text-slate-500 motion-reduce:animate-none sm:left-8"
         aria-hidden="true"
       >
         <span>scroll</span>

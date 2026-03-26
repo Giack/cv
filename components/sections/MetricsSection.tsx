@@ -66,10 +66,10 @@ export function MetricsSection() {
   const secondaryMetrics = cvData.impactMetrics.slice(2)
 
   return (
-    <section id="metrics" ref={sectionRef} className="bg-slate-950 px-4 py-24">
+    <section id="metrics" ref={sectionRef} className="bg-slate-950 px-4 py-20">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-12 text-center">
-          <h2 className="mb-3 text-3xl font-bold text-slate-50">Impact</h2>
+        <div className="mb-12">
+          <h2 className="mb-3 font-display text-3xl font-bold text-slate-50">Impact</h2>
           <p className="text-slate-400">
             Outcomes delivered by the teams — not just shipped, measured
           </p>
