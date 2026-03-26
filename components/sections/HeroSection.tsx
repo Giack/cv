@@ -36,7 +36,7 @@ export function HeroSection() {
         </div>
 
         {/* Name */}
-        <h1 className="mb-4 text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl">
+        <h1 className="mb-4 text-5xl font-bold tracking-tight text-slate-50 sm:text-6xl md:text-7xl">
           {personal.name}
         </h1>
 
@@ -66,7 +66,12 @@ export function HeroSection() {
             variant="outline"
             className="rounded-full border-slate-600 px-8 py-3 text-base text-slate-300 hover:bg-slate-800"
           >
-            <a href={personal.linkedin} target="_blank" rel="noopener noreferrer">
+            <a
+              href={personal.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View LinkedIn profile (opens in new tab)"
+            >
               LinkedIn ↗
             </a>
           </Button>
@@ -74,7 +79,10 @@ export function HeroSection() {
       </div>
 
       {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 animate-bounce flex-col items-center gap-1 text-sm text-slate-500">
+      <div
+        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 animate-float-down flex-col items-center gap-1 text-sm text-slate-500 motion-reduce:animate-none"
+        aria-hidden="true"
+      >
         <span>scroll</span>
         <span>↓</span>
       </div>

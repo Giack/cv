@@ -16,7 +16,7 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
                 {item.company}
               </Badge>
             </div>
-            <p className="text-sm text-slate-500">{item.period}</p>
+            <p className="text-sm text-slate-400">{item.period}</p>
             <ul className="mt-3 space-y-1.5">
               {item.highlights.map((h, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
@@ -42,7 +42,7 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
                 {item.company}
               </Badge>
             </div>
-            <p className="text-sm text-slate-500">{item.period}</p>
+            <p className="text-sm text-slate-400">{item.period}</p>
             <ul className="mt-3 space-y-1.5 group-open:hidden">
               {item.highlights.map((h, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
@@ -52,7 +52,10 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
               ))}
             </ul>
           </div>
-          <span className="mt-0.5 shrink-0 text-slate-500 transition-transform duration-200 group-open:rotate-180">
+          <span
+            aria-hidden="true"
+            className="mt-0.5 shrink-0 text-slate-500 transition-transform duration-200 group-open:rotate-180"
+          >
             ↓
           </span>
         </div>
@@ -76,8 +79,7 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="bg-slate-900 px-4 py-24">
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-3 text-3xl font-bold text-white">Experience</h2>
-        <p className="mb-12 text-slate-400">Click any role to expand full details</p>
+        <h2 className="mb-12 text-3xl font-bold text-slate-50">Experience</h2>
 
         <div className="space-y-3">
           {cvData.experience.map((item) => (

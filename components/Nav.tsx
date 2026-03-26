@@ -1,16 +1,16 @@
 // components/Nav.tsx
-'use client'
+"use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react"
 
-const CONTACT_EMAIL = 'giack87@gmail.com'
+const CONTACT_EMAIL = "giack87@gmail.com"
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'AI Lab', href: '#ai-lab' },
-  { label: 'Metrics', href: '#metrics' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
+  { label: "About", href: "#about" },
+  { label: "AI Lab", href: "#ai-lab" },
+  { label: "Metrics", href: "#metrics" },
+  { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#skills" },
 ]
 
 export function Nav() {
@@ -22,44 +22,42 @@ export function Nav() {
     const handleResize = () => {
       if (window.innerWidth >= 768) setIsOpen(false)
     }
-    window.addEventListener('scroll', handleScroll)
-    window.addEventListener('resize', handleResize)
+    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("resize", handleResize)
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleResize)
     }
   }, [])
 
   return (
     <nav
       aria-label="Main navigation"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-slate-900/95 backdrop-blur-sm border-b border-slate-800 shadow-lg'
-          : 'bg-transparent'
+          ? "border-b border-slate-800 bg-slate-900/95 shadow-lg backdrop-blur-sm"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-14">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="flex h-14 items-center justify-between">
           {/* Logo */}
-          <span className="text-sm font-semibold text-slate-300 tracking-wide">
-            GS
-          </span>
+          <span className="text-sm font-semibold tracking-wide text-slate-300">GS</span>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden items-center gap-6 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-slate-400 hover:text-violet-400 transition-colors duration-200"
+                className="rounded-sm text-sm text-slate-400 transition-colors duration-200 hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-900"
               >
                 {link.label}
               </a>
             ))}
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="text-sm bg-violet-600 hover:bg-violet-500 text-white px-4 py-1.5 rounded-full transition-colors duration-200"
+              className="rounded-full bg-violet-600 px-4 py-1.5 text-sm text-white transition-colors duration-200 hover:bg-violet-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
               Contact
             </a>
@@ -67,26 +65,32 @@ export function Nav() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden text-slate-400 hover:text-white p-2"
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center p-3 text-slate-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-900 md:hidden"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
           >
-            <div className={`w-5 h-0.5 bg-current transition-all ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-            <div className={`w-5 h-0.5 bg-current my-1 transition-all ${isOpen ? 'opacity-0' : ''}`} />
-            <div className={`w-5 h-0.5 bg-current transition-all ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+            <div
+              className={`h-0.5 w-5 bg-current transition-all ${isOpen ? "translate-y-1.5 rotate-45" : ""}`}
+            />
+            <div
+              className={`my-1 h-0.5 w-5 bg-current transition-all ${isOpen ? "opacity-0" : ""}`}
+            />
+            <div
+              className={`h-0.5 w-5 bg-current transition-all ${isOpen ? "-translate-y-1.5 -rotate-45" : ""}`}
+            />
           </button>
         </div>
       </div>
 
       {/* Mobile dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-slate-900/98 border-b border-slate-800 px-4 pb-4">
+        <div className="bg-slate-900/98 border-b border-slate-800 px-4 pb-4 md:hidden">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="block py-2.5 text-slate-300 hover:text-violet-400 transition-colors"
+              className="block py-2.5 text-slate-300 transition-colors hover:text-violet-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
@@ -94,7 +98,7 @@ export function Nav() {
           ))}
           <a
             href={`mailto:${CONTACT_EMAIL}`}
-            className="block mt-2 text-center bg-violet-600 hover:bg-violet-500 text-white px-4 py-2 rounded-full transition-colors"
+            className="mt-2 block rounded-full bg-violet-600 px-4 py-2 text-center text-white transition-colors hover:bg-violet-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             onClick={() => setIsOpen(false)}
           >
             Contact

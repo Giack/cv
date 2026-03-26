@@ -35,6 +35,7 @@ function Footer() {
             href={personal.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="View LinkedIn profile (opens in new tab)"
             className="text-sm text-slate-400 transition-colors hover:text-violet-400"
           >
             LinkedIn ↗
