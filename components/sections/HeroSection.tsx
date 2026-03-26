@@ -1,6 +1,5 @@
 // components/sections/HeroSection.tsx
 import { cvData } from "@/data/cv"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 
 export function HeroSection() {
@@ -51,26 +50,21 @@ export function HeroSection() {
 
         {/* CTAs */}
         <div className="flex flex-wrap gap-3">
-          <Button
-            asChild
-            className="rounded-full bg-violet-600 px-8 py-3 text-base text-white hover:bg-violet-500"
+          <a
+            href={`mailto:${personal.email}`}
+            className="inline-flex items-center justify-center rounded-full bg-violet-600 px-8 py-3 text-base text-white transition-colors hover:bg-violet-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
-            <a href={`mailto:${personal.email}`}>{personal.email}</a>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="rounded-full border-slate-600 px-8 py-3 text-base text-slate-300 hover:bg-slate-800"
+            {personal.email}
+          </a>
+          <a
+            href={personal.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View LinkedIn profile (opens in new tab)"
+            className="inline-flex items-center justify-center rounded-full border border-slate-600 px-8 py-3 text-base text-slate-300 transition-colors hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
-            <a
-              href={personal.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View LinkedIn profile (opens in new tab)"
-            >
-              LinkedIn ↗
-            </a>
-          </Button>
+            LinkedIn ↗
+          </a>
         </div>
       </div>
 

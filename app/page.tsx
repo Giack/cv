@@ -14,7 +14,7 @@ const MetricsSection = dynamic(
     })),
   {
     ssr: false,
-    loading: () => <div className="bg-slate-950 py-24" aria-hidden="true" />,
+    loading: () => <div className="bg-slate-950 py-20" aria-hidden="true" />,
   }
 )
 
