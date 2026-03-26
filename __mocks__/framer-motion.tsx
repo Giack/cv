@@ -15,5 +15,6 @@ const useTransform = (_: unknown, __: unknown, output: number[]) => ({
   get: () => output[0],
 })
 const animate = () => Promise.resolve()
+const useReducedMotion = () => false
 
-export { motion, useInView, useMotionValue, useTransform, animate }
+export { motion, useInView, useMotionValue, useTransform, animate, useReducedMotion }
