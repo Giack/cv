@@ -27,13 +27,13 @@ export function HeroSection() {
           <span className="block text-5xl font-bold text-slate-400 sm:text-6xl md:text-7xl lg:text-8xl">
             {personal.name.split(" ")[0]}
           </span>
-          <span className="block text-5xl font-extrabold text-slate-50 sm:text-6xl md:text-7xl lg:text-8xl">
+          <span className="block text-5xl font-extrabold text-slate-50 sm:text-6xl md:text-7xl lg:text-9xl">
             {personal.name.split(" ").slice(1).join(" ")}
           </span>
         </h1>
 
-        {/* Thin violet accent line */}
-        <div className="mb-6 h-0.5 w-16 bg-violet-500" />
+        {/* Violet accent line */}
+        <div className="mb-6 h-[3px] w-24 bg-violet-500" />
 
         {/* Title */}
         <p className="mb-1 text-xl font-medium text-violet-400 sm:text-2xl">{personal.title}</p>

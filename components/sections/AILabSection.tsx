@@ -17,7 +17,9 @@ export function AILabSection() {
             <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-violet-400">
               Live Initiative
             </p>
-            <h2 className="font-display text-3xl font-bold text-slate-50">AI Transformation Lab</h2>
+            <h2 className="font-display text-4xl font-bold text-slate-50 sm:text-5xl">
+              AI Transformation Lab
+            </h2>
             <p className="mt-1 text-slate-400">
               Currently running — not a slide deck, an actual experiment
             </p>

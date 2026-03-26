@@ -15,7 +15,7 @@ export function SkillsSection() {
   return (
     <section id="skills" className="bg-slate-950 px-4 py-16">
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-2 font-display text-3xl font-bold text-slate-50">Skills</h2>
+        <h2 className="mb-2 font-display text-4xl font-bold text-slate-50 sm:text-5xl">Skills</h2>
         <p className="mb-12 text-slate-400">
           Tools, disciplines, and frameworks across 15 years of engineering leadership
         </p>

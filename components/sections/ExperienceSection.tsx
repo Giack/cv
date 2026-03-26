@@ -83,9 +83,11 @@ function ExperienceCard({ item }: { item: ExperienceItem }) {
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="bg-slate-900 px-4 py-28">
+    <section id="experience" className="bg-slate-900 px-4 py-36">
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-12 font-display text-3xl font-bold text-slate-50">Experience</h2>
+        <h2 className="mb-12 font-display text-4xl font-bold text-slate-50 sm:text-5xl">
+          Experience
+        </h2>
 
         <div className="space-y-3">
           {cvData.experience.map((item) => (

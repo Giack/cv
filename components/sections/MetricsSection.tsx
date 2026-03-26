@@ -32,7 +32,7 @@ function AnimatedCounter({ item, featured = false }: { item: MetricItem; feature
   return (
     <div
       className={`font-bold [font-variant-numeric:tabular-nums] ${item.color} ${
-        featured ? "text-5xl sm:text-6xl" : "text-4xl sm:text-5xl"
+        featured ? "text-6xl sm:text-7xl" : "text-4xl sm:text-5xl"
       }`}
     >
       {item.prefix && <span>{item.prefix}</span>}
@@ -69,7 +69,7 @@ export function MetricsSection() {
     <section id="metrics" ref={sectionRef} className="bg-slate-950 px-4 py-20">
       <div className="mx-auto max-w-5xl">
         <div className="mb-12">
-          <h2 className="mb-3 font-display text-3xl font-bold text-slate-50">Impact</h2>
+          <h2 className="mb-3 font-display text-4xl font-bold text-slate-50 sm:text-5xl">Impact</h2>
           <p className="text-slate-400">
             Outcomes delivered by the teams — not just shipped, measured
           </p>
