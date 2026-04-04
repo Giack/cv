@@ -40,5 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# pdf files
+# pdf files (except public assets meant for download)
 *.pdf
+!public/files/*.pdf
