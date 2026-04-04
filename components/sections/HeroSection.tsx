@@ -65,6 +65,14 @@ export function HeroSection() {
           >
             LinkedIn ↗
           </a>
+          <a
+            href="/cv/files/giacomo-sortino-cv.pdf"
+            download
+            aria-label="Download CV as PDF"
+            className="inline-flex items-center justify-center rounded-full border border-slate-600 px-8 py-3 text-base text-slate-300 transition-colors hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+          >
+            Download CV ↓
+          </a>
         </div>
       </div>
 
