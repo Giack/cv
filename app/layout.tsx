@@ -55,10 +55,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${syne.variable}`}>
       <head>
-        {/* JSON-LD structured data — React 18 serializes script children as-is in server rendering */}
-        <script id="json-ld-schema" type="application/ld+json" suppressHydrationWarning>
-          {JSON.stringify(jsonLd)}
-        </script>
+        {/* JSON-LD structured data — hardcoded static object, no user input */}
+        <script
+          id="json-ld-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body>{children}</body>
     </html>
