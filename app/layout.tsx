@@ -1,6 +1,7 @@
 // app/layout.tsx
 import type { Metadata } from "next"
 import { Inter, Syne } from "next/font/google"
+import { cvData } from "@/data/cv"
 import "./globals.css"
 
 const inter = Inter({
@@ -45,10 +46,10 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Giacomo Sortino",
-  jobTitle: "Director of Engineering",
+  name: cvData.personal.name,
+  jobTitle: cvData.personal.title,
   url: "https://giack.github.io/cv",
-  sameAs: ["https://www.linkedin.com/in/sortino---giacomo/"],
+  sameAs: [cvData.personal.linkedin],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
